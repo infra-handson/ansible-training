@@ -6,10 +6,10 @@
 ~/ansible-training/assets/tools/setup.sh && source /etc/profile.d/init-env.sh
 ```
 
-2. カレントディレクトリを`~/ansible-training/lesson/03_practice`に変更します
+2. カレントディレクトリを`~/ansible-training/exercise/03_practice`に変更します
 
 ```bash
-cd ~/ansible-training/lesson/03_practice
+cd ~/ansible-training/exercise/03_practice
 ```
 
 以降、本演習では特に指示がない限り、上記ディレクトリをカレントディレクトリとした状態で作業することを前提とします。  
