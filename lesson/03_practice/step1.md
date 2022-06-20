@@ -3,13 +3,13 @@
 1. 以下のコマンドを実行します
 
 ```bash
-bash /tools/setup.sh && source /etc/profile.d/init-env.sh
+~/ansible-training/assets/tools/setup.sh && source /etc/profile.d/init-env.sh
 ```
 
-2. カレントディレクトリを`/training/iac/03_practice`に変更します
+2. カレントディレクトリを`~/ansible-training/lesson/03_practice`に変更します
 
 ```bash
-cd /training/iac/03_practice
+cd ~/ansible-training/lesson/03_practice
 ```
 
 以降、本演習では特に指示がない限り、上記ディレクトリをカレントディレクトリとした状態で作業することを前提とします。  
