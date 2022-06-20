@@ -6,7 +6,7 @@
 ansible-playbook -i inventory playbook_short_sample.yaml
 ```
 
-正常に実行完了したら、`works`ディレクトリ直下にある`playbook_short_sample.yaml`ファイルを開いてください。  
+正常に実行完了したら、`~/ansible-training/exercise/03_practice`ディレクトリ直下にある`playbook_short_sample.yaml`ファイルを開いてください。  
 中身を見ると、1つのPlaybookファイルにTaskが直接記載されており、このファイルのみで実行内容が完結していることがわかります。  
 Playbookは実はこのようにとてもシンプルな構成で実装することが可能です。  
 簡易的な自動化であればこれでも特に問題はありません。  
