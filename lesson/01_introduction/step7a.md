@@ -13,7 +13,7 @@ all:
       ansible_port: 2224
       ansible_user: john
   vars:
-    ansible_ssh_private_key_file: ~/.ssh/test_key
+    ansible_ssh_private_key_file: ~/.ssh/ansible_lesson_key
 
 ```
 

@@ -34,7 +34,7 @@ SSHから抜ける際は`exit`コマンドを実行すると元のコンソー�
 1号機
 
 ```bash
-ssh target01 -i /root/.ssh/test_key
+ssh target01 -i /root/.ssh/ansible_lesson_key
 ```
 
 ```bash
@@ -44,7 +44,7 @@ exit
 2号機
 
 ```bash
-ssh target02 -i /root/.ssh/test_key
+ssh target02 -i /root/.ssh/ansible_lesson_key
 ```
 
 ```bash
@@ -54,7 +54,7 @@ exit
 3号機
 
 ```bash
-ssh target03 -i /root/.ssh/test_key
+ssh target03 -i /root/.ssh/ansible_lesson_key
 ```
 
 ```bash

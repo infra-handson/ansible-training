@@ -52,7 +52,7 @@ ansible-playbook -i inventory playbook_kadai-2.yaml
 ### 1号機
 
 ```bash
-ssh target01 -i /root/.ssh/test_key
+ssh target01 -i /root/.ssh/ansible_lesson_key
 ```
 
 ```bash
@@ -66,13 +66,13 @@ sshコマンドは引数にシェルコマンドを渡すと、リモート先�
 これを利用することで上記の確認操作を以下のように簡略化できます。  
 
 ```bash
-ssh target01 -i /root/.ssh/test_key "cat /tmp/copy_file"
+ssh target01 -i /root/.ssh/ansible_lesson_key "cat /tmp/copy_file"
 ```
 
 ### 2号機
 
 ```bash
-ssh target02 -i /root/.ssh/test_key
+ssh target02 -i /root/.ssh/ansible_lesson_key
 ```
 
 ```bash
@@ -85,7 +85,7 @@ exit
 上記と同様に、SSHの対象を変更すれば確認操作を簡略化できます。
 
 ```bash
-ssh target02 -i /root/.ssh/test_key "cat /tmp/copy_file"
+ssh target02 -i /root/.ssh/ansible_lesson_key "cat /tmp/copy_file"
 ```
 
 ---

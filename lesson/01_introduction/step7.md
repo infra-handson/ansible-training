@@ -31,15 +31,15 @@ all:
       hosts:
         target01:
           ansible_port: 2222
-          ansible_ssh_private_key_file: ~/.ssh/test_key
+          ansible_ssh_private_key_file: ~/.ssh/ansible_lesson_key
           ansible_user: hoge
         target02:
           ansible_port: 2223
-          ansible_ssh_private_key_file: ~/.ssh/test_key
+          ansible_ssh_private_key_file: ~/.ssh/ansible_lesson_key
           ansible_user: foo
         target03:
           ansible_port: 2224
-          ansible_ssh_private_key_file: ~/.ssh/test_key
+          ansible_ssh_private_key_file: ~/.ssh/ansible_lesson_key
           ansible_user: john
 ```
 

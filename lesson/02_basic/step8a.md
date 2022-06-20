@@ -39,7 +39,7 @@ all:
         - /etc/profile
         - /proc/cpuinfo
   vars:
-    ansible_ssh_private_key_file: ~/.ssh/test_key
+    ansible_ssh_private_key_file: ~/.ssh/ansible_lesson_key
 ```
 
 この書き方の違いはそれぞれ「**配列**（リストとも言われる）」と「**マップ**（ハッシュ、連想配列などとも言われる）」を表しています。  
@@ -75,7 +75,7 @@ all:
         - path: /proc/cpuinfo
           dest: /tmp/test4/hoge
   vars:
-    ansible_ssh_private_key_file: ~/.ssh/test_key
+    ansible_ssh_private_key_file: ~/.ssh/ansible_lesson_key
 ```
 
 タスクは以下のように書き換えます。

@@ -39,7 +39,7 @@ all:
         - /etc/profile
         - /proc/cpuinfo
   vars:  # 共通の変数
-    ansible_ssh_private_key_file: ~/.ssh/test_key
+    ansible_ssh_private_key_file: ~/.ssh/ansible_lesson_key
 ```
 
 ## 3. タスクの作成

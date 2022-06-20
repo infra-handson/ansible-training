@@ -12,7 +12,7 @@ Start - [**1**](step1.md) - [2](step2.md) - [3](step3.md) - [4](step4.md) - [5](
 2. カレントディレクトリを`~/ansible-training/exercise/02_basic`に変更します
 
 ```bash
-cd~/ansible-training/exercise/02_basic
+cd ~/ansible-training/exercise/02_basic
 ```
 
 以降、本演習では特に指示がない限り、上記ディレクトリをカレントディレクトリとした状態で作業することを前提とします。  
@@ -37,7 +37,7 @@ SSHから抜ける際は`exit`コマンドを実行すると元のコンソー�
 1号機
 
 ```bash
-ssh target01 -i /root/.ssh/test_key
+ssh target01 -i /root/.ssh/ansible_lesson_key
 ```
 
 ```bash
@@ -47,7 +47,7 @@ exit
 2号機
 
 ```bash
-ssh target02 -i /root/.ssh/test_key
+ssh target02 -i /root/.ssh/ansible_lesson_key
 ```
 
 ```bash

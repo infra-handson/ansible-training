@@ -39,7 +39,7 @@ all:
       ansible_user: foo
       server_hostname: target-server-02
   vars:  # 共通の変数
-    ansible_ssh_private_key_file: ~/.ssh/test_key
+    ansible_ssh_private_key_file: ~/.ssh/ansible_lesson_key
 ```
 
 ## 3. ターゲットサーバへ配置するファイルの作成
@@ -77,13 +77,13 @@ ansible-playbook -i inventory playbook_kadai-3.yaml
 ### 1号機
 
 ```bash
-ssh target01 -i /root/.ssh/test_key "cat /tmp/template_file"
+ssh target01 -i /root/.ssh/ansible_lesson_key "cat /tmp/template_file"
 ```
 
 ### 2号機
 
 ```bash
-ssh target02 -i /root/.ssh/test_key "cat /tmp/template_file"
+ssh target02 -i /root/.ssh/ansible_lesson_key "cat /tmp/template_file"
 ```
 
 ### 補足

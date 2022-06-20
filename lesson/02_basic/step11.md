@@ -43,13 +43,13 @@ ansible-playbook -i inventory playbook_kadai-6-1.yaml
 ### 1号機
 
 ```bash
-ssh target01 -i /root/.ssh/test_key "cat resultfile"
+ssh target01 -i /root/.ssh/ansible_lesson_key "cat resultfile"
 ```
 
 ### 2号機
 
 ```bash
-ssh target02 -i /root/.ssh/test_key "cat resultfile"
+ssh target02 -i /root/.ssh/ansible_lesson_key "cat resultfile"
 ```
 
 以下でも確認可能です。
