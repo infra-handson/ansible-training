@@ -42,5 +42,3 @@ changed: [target01] => (item=8.8.8.8)
 
 - [前のページに戻る](step8.md)
 - [目次](README.md)
-- [次のページに進む](step9.md)
-

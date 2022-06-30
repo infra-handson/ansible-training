@@ -19,6 +19,6 @@ ansible -m shell -a "ip a" -i inventory all
 
 ---
 
-- [前のページに戻る](step7.md)
+- [前のページに戻る](step7a.md)
 - [目次](README.md)
 - [解説に進む](step8a.md)

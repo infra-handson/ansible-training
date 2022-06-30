@@ -38,4 +38,4 @@ ansible-playbook -i inventory <Playbookファイル> -b
 
 - [前のページに戻る](step2a.md)
 - [目次](README.md)
-- [次のページに進む](step4.md)
+- [解説に進む](step3a.md)

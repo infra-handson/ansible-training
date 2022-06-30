@@ -60,4 +60,4 @@ ok: [target01] => {
 
 - [前のページに戻る](step6a.md)
 - [目次](README.md)
-- [次のページに進む](step8.md)
+- [解説に進む](step7a.md)
