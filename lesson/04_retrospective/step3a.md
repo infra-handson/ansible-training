@@ -8,7 +8,6 @@ taskのみ記載します。
 - name: ユーザ作成
   user:
     name: "nginx"
-    state: present
 ```
 
 ## 課題2-2: 作成したユーザの確認

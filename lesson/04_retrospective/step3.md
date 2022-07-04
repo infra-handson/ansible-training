@@ -31,7 +31,7 @@ ansible-playbook -i inventory <Playbookファイル> -b
 ## 発展課題: becomeについて
 
 `-b`オプションは`become`と呼ばれるオプションです。  
-この`become`の意味について調べ、なぜ`become`を有効にしないと実行できないのかを考えてみてください。  
+この`become`の意味について[公式ドキュメント](https://docs.ansible.com/ansible/2.9_ja/user_guide/become.html)などを参考にして調べ、なぜ`become`を有効にしないと実行できないのかを考えてみてください。  
 なお、`-b`オプションを付与する以外にも、Playbook等で`become: yes`と記載しても同様の効果があります。
 
 ---

@@ -14,7 +14,7 @@
 ```yaml
 # target01.yaml 記載例
 ping_targets:
-  - 172.18.0.3  # target02のIPアドレス
+  - 172.18.0.3  # target02のIPアドレス（環境によって異なる）
   - 192.168.12.34  # 存在しないIPアドレス（failedになる）
   - localhost
   - 8.8.8.8  # Googleが提供しているパブリックDNSサービスのIPアドレス
@@ -23,7 +23,7 @@ ping_targets:
 ```yaml
 # target02.yaml 記載例
 ping_targets:
-  - 172.18.0.4  # target01のIPアドレス
+  - 172.18.0.4  # target01のIPアドレス（環境によって異なる）
   - 8.8.8.8
 ```
 
