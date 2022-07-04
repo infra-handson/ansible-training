@@ -26,7 +26,7 @@ curl http://演習環境のURL:8082
 `curl`が失敗したときの挙動はいくつかありますが、Timeoutや以下のような結果が返ってくればアクセスできないことが確認できています。
 
 ```bash
-curl: (7) Failed to connect to演習環境のURL port 8082 after 1 ms: Connection refused
+curl: (7) Failed to connect to 演習環境のURL port 8082 after 1 ms: Connection refused
 ```
 
 ## 2. Playbookの実行
