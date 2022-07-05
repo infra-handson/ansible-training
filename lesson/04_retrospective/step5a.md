@@ -9,7 +9,6 @@ taskの他、`host_vars`ディレクトリの`target01.yaml`と`target02.yaml`�
 - name: "ユーザ作成"
   user:
     name: "{{ item }}"
-    state: present
   loop: "{{ users }}"
 ```
 

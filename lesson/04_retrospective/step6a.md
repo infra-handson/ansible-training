@@ -8,7 +8,6 @@ taskのみ記載します。
 - name: "ユーザ作成"
   user:
     name: "{{ item }}"
-    state: present
   loop: "{{ users }}"
   when: users is defined
 ```
