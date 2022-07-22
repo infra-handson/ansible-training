@@ -55,7 +55,7 @@ ssh target02 -i /root/.ssh/ansible_lesson_key "cat resultfile"
 以下でも確認可能です。
 
 ```bash
-ansible -m shell -a "sudo cat /root/resultfile" -i inventory all
+ansible -m shell -a "cat ~/resultfile" -i inventory all
 ```
 
 ---
