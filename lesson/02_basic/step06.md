@@ -42,7 +42,7 @@ all:
     ansible_ssh_private_key_file: ~/.ssh/ansible_lesson_key
 ```
 
-## 3. ターゲットサーバへ配置するファイルの作成
+## 3. テンプレートファイルの作成
 
 `roles/kadai-3/templates/template_file.j2`に以下をコピペします。
 
