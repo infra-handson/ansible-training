@@ -99,7 +99,7 @@ tree /tmp/test4/
 
 ---
 
-- [前のページに戻る](step8.md)
+- [前のページに戻る](step08.md)
 - [目次](README.md)
-- [次のページに進む](step9.md)
+- [次のページに進む](step09.md)
 

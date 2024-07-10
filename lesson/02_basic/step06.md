@@ -1,4 +1,4 @@
-Start - [1](step1.md) - [2](step2.md) - [3](step3.md) - [4](step4.md) - [5](step5.md) - [**6**](step6.md) - [7](step7.md) - [8](step8.md) - [9](step9.md) - [10](step10.md) - [11](step11.md) - [12](step12.md) - End
+Start - [1](step01.md) - [2](step02.md) - [3](step03.md) - [4](step04.md) - [5](step05.md) - [**6**](step06.md) - [7](step07.md) - [8](step08.md) - [9](step09.md) - [10](step10.md) - [11](step11.md) - [12](step12.md) - End
 
 
 # 課題3: テンプレートを利用してファイルを配布する
@@ -100,6 +100,6 @@ ansible -m shell -a "cat /tmp/template_file" -i inventory all
 
 ---
 
-- [前のページに戻る](step5.md)
+- [前のページに戻る](step05.md)
 - [目次](README.md)
 - [解説に進む](step6a.md)
