@@ -73,4 +73,4 @@ Playbookを実行すると、カレントディレクトリ直下に`kadai-4_fet
 
 - [前のページに戻る](step07.md)
 - [目次](README.md)
-- [解説に進む](step8a.md)
+- [解説に進む](step08a.md)

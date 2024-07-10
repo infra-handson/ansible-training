@@ -95,4 +95,4 @@ ssh target02 -i /root/.ssh/ansible_lesson_key "cat /tmp/copy_file"
 
 - [前のページに戻る](step03.md)
 - [目次](README.md)
-- [解説に進む](step4a.md)
+- [解説に進む](step04a.md)

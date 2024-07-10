@@ -102,4 +102,4 @@ ansible -m shell -a "cat /tmp/template_file" -i inventory all
 
 - [前のページに戻る](step05.md)
 - [目次](README.md)
-- [解説に進む](step6a.md)
+- [解説に進む](step06a.md)

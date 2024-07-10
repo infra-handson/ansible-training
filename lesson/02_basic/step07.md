@@ -47,6 +47,6 @@ Start - [1](step01.md) - [2](step02.md) - [3](step03.md) - [4](step04.md) - [5](
 
 ---
 
-- [前のページに戻る](step6a.md)
+- [前のページに戻る](step06a.md)
 - [目次](README.md)
 - [次のページに進む](step08.md)

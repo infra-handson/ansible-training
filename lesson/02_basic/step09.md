@@ -29,6 +29,6 @@ Ansibleでは実行時に`ansible_os_family`というマジック変数が自動
 
 ---
 
-- [前のページに戻る](step8a.md)
+- [前のページに戻る](step08a.md)
 - [目次](README.md)
 - [次のページに進む](step10.md)
