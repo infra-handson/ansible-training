@@ -6,22 +6,24 @@ Start - [1](step01.md) - [2](step02.md) - [3](step03.md) - [**4**](step04.md) - 
 本課題では、Ansibleの公式ドキュメントを参考にしながら自分で簡単なコードを作成する方法について学んでもらいます。  
 題材として、copyモジュールを使ってファイル配置するPlaybookを作ります。  
 ※ファイル配置のイメージ  
-![](img/arch.drawio_copy.svg)
+![](img/arch_copy.drawio.svg)
 
 
 ## 1. Playbookの作成
 
-`playbook_kadai-2.yaml`に以下をコピペします。
+`exercise/02_base/playbook_kadai-2.yaml`に以下をコピー＆ペーストします。
 
 ```yaml
+---
 - hosts: all
   roles:
     - kadai-2
+
 ```
 
 ## 2. ターゲットサーバへ配置するファイルの作成
 
-`roles/kadai-2/files/copy_file`に以下をコピペします。
+`exercise/02_base/roles/kadai-2/files/copy_file`に以下をコピー＆ペーストします。
 
 ```text
 ターゲットサーバに配置されるファイルです。
@@ -32,11 +34,11 @@ Ansible実行後にターゲットサーバに配置されていることを確�
 
 ## 3. タスクの作成
 
-[copyモジュールのドキュメント](https://docs.ansible.com/ansible/2.9_ja/modules/copy_module.html)を参考に、`roles/kadai-2/tasks/main.yaml`へタスクを作成します。  
+[copyモジュールのドキュメント](https://docs.ansible.com/ansible-core/2.15_ja/collections/ansible/builtin/copy_module.html#ansible-collections-ansible-builtin-copy-module)を参考に、`exercise/02_base/roles/kadai-2/tasks/main.yaml`へタスクを作成します。  
 実装の要件は以下の通りです。
 
 * `copy`モジュールを使うこと
-* 2で作成した`roles/kadai-2/files/copy_file`をターゲットサーバの`/tmp/copy_file`へ配置すること
+* 2で作成した`exercise/02_base/roles/kadai-2/files/copy_file`をターゲットサーバの`/tmp/copy_file`へ配置すること
   * 今回の場合は、`roles/kadai-2/`が相対パスの起点となる
 
 回答例は次のページに記載していますが、どうしても上手くいかない場合にだけ参考にしてください。
@@ -82,13 +84,6 @@ ssh target02 -i /root/.ssh/ansible_lesson_key
 ls /tmp
 cat /tmp/copy_file
 exit
-```
-
-:warning:  
-上記と同様に、SSHの対象を変更すれば確認操作を簡略化できます。
-
-```bash
-ssh target02 -i /root/.ssh/ansible_lesson_key "cat /tmp/copy_file"
 ```
 
 ---

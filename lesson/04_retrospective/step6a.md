@@ -6,7 +6,7 @@ taskのみ記載します。
 
 ```yaml
 - name: "ユーザ作成"
-  user:
+  ansible.builtin.user:
     name: "{{ item }}"
   loop: "{{ users }}"
   when: users is defined

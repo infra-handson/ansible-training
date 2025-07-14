@@ -11,17 +11,18 @@ shellモジュールをアドホックコマンドで実行する基本的な方
 
 ```bash
 # 特定のサーバで実行したい場合
-ansible -m shell -a "実行したいコマンド" -i inventory 実行したいインベントリ名
+ansible -m ansible.builtin.shell -a "実行したいコマンド" -i inventory 実行したいインベントリ名
 # インベントリに記載されているすべてのサーバで実行したい場合
-ansible -m shell -a "実行したいコマンド" -i inventory all
+ansible -m ansible.builtin.shell -a "実行したいコマンド" -i inventory all
 
 # 実行例: target01のホスト名を確認するアドホックコマンド
-ansible -m shell -a "hostname" -i inventory target01
+ansible -m ansible.builtin.shell -a "hostname" -i inventory target01
 ```
 
 ## 課題1-1: 接続しているユーザ名の確認
 
-- target01サーバで`whoami`コマンドを実行し、接続ユーザ名を確認してください
+アドホックコマンドを使って以下を実行してください。
+- target01サーバで`whoami`コマンドを実行し、接続ユーザ名を確認してください。
 - 1回のコマンド実行ですべてのサーバ（＝target01, target02）に`whoami`コマンドを実行し、接続ユーザ名を確認してください
 
 ## 課題1-2: IPの確認
@@ -35,7 +36,7 @@ ansible -m shell -a "hostname" -i inventory target01
 
 ※補足  
 pingの宛先となる各サーバのIPアドレスは、課題1-2で確認したIPアドレスになります。  
-`ping`コマンドは`-c`オプションを使って回数を指定する必要があります。（例: `ping 192.168.1.2 -c 4`）
+`ping`コマンドは`-c`オプションを使って回数を指定します。（例: `ping 192.168.1.2 -c 4`）
 
 ## 発展課題: `ping`コマンドで`-c`オプションが必要な理由
 

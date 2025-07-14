@@ -18,7 +18,7 @@ Ansibleは構成管理ツールですが、リモートでコマンドを実行�
 各サーバのIPは以下のアドホックコマンドで確認してください。
 
 ```bash
-ansible -m shell -a "ip a" -i inventory all
+ansible -m ansible.builtin.shell -a "ip a" -i inventory all
 ```
 
 ## 補足: IPアドレス8.8.8.8について

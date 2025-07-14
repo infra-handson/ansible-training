@@ -7,7 +7,7 @@
 
 ```yaml
 - name: "疎通確認"
-  shell: "ping -c 1 -W 1 {{ item }}"
+  ansible.builtin.shell: "ping -c 1 -W 1 {{ item }}"
   loop: "{{ ping_targets }}"
 ```
 

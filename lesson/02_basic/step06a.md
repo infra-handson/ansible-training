@@ -4,7 +4,7 @@
 
 ```yaml
 - name: template file
-  template:
+  ansible.builtin.template:
     src: ./templates/template_file.j2
     dest: /tmp/template_file
 ```

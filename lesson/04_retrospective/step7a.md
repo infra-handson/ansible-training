@@ -7,40 +7,40 @@ taskのみ記載します。
 
 ```yaml
 - name: "ユーザ作成"
-  user:
+  ansible.builtin.user:
     name: "{{ item }}"
   loop: "{{ users }}"
   when: users is defined
 
 - name: "ユーザ確認コマンドの実行"
-  shell: "tail -10 /etc/passwd"
+  ansible.builtin.shell: "tail -10 /etc/passwd"
   register: ret
   when: user_check is defined
 
 - name: "ユーザ確認結果の出力"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ ret.stdout_lines }}"
   when: user_check is defined
 ```
 
 表示する行数は適宜調整してください。`cat`でもよいです。  
-なお、`block`を使うと以下のように`when`の条件文の記載を1つにまとめられます。  
+なお、`block`を使うと以下のように`when`の条件文の記載を1つにまとめられます。インデントの深さから、各taskではなくblockに対する`when`であることに注目してください。  
 複数のタスクをまとめて同じ条件で分岐させたい場合はこちらの方が記述ミスの可能性が少なくなり、可読性も良くなります。
 
 ```yaml
 - name: "ユーザ作成"
-  user:
+  ansible.builtin.user:
     name: "{{ item }}"
   loop: "{{ users }}"
   when: users is defined
 
 - block:
   - name: "ユーザ確認コマンドの実行"
-    shell: "tail -10 /etc/passwd"
+    ansible.builtin.shell: "tail -10 /etc/passwd"
     register: ret
 
   - name: "ユーザ確認結果の出力"
-    debug:
+    ansible.builtin.debug:
       msg: "{{ ret.stdout_lines }}"
 
   when: user_check is defined

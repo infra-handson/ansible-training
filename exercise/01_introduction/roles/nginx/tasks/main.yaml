@@ -1,2 +1,2 @@
 ---
-- include: configure_nginx.yaml
+- include_tasks: configure_nginx.yaml

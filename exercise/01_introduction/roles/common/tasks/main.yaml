@@ -1,2 +1,2 @@
 ---
-- include: task_sample.yaml
+- include_tasks: task_sample.yaml

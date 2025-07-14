@@ -5,9 +5,11 @@
 taskのみ記載します。
 
 ```yaml
+---
 - name: ユーザ作成
   user:
     name: "nginx"
+
 ```
 
 ## 課題2-2: 作成したユーザの確認
@@ -15,16 +17,16 @@ taskのみ記載します。
 コマンド例として、以下のような確認方法があります。
 
 ```bash
-ansible -m shell -a "id nginx" -i inventory all
+ansible -m ansible.builtin.shell -a "id nginx" -i inventory all
 ```
 
 ```bash
-ansible -m shell -a "tail /etc/passwd" -i inventory all
+ansible -m ansible.builtin.shell -a "tail /etc/passwd" -i inventory all
 # catでもよいが、出力行が多いのでtailの方が無難
 ```
 
 ```bash
-ansible -m shell -a "grep nginx /etc/passwd" -i inventory all
+ansible -m ansible.builtin.shell -a "grep nginx /etc/passwd" -i inventory all
 ```
 
 ## 補足課題: becomeについて

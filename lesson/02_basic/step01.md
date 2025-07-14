@@ -9,6 +9,10 @@ Start - [**1**](step01.md) - [2](step02.md) - [3](step03.md) - [4](step04.md) - 
 ~/ansible-training/assets/tools/setup.sh && source /etc/profile.d/init-env.sh
 ```
 
+以下の環境が構築されます。
+
+![](img/arch.drawio.svg)
+
 2. カレントディレクトリを`~/ansible-training/exercise/02_basic`に変更します
 
 ```bash
@@ -24,10 +28,6 @@ cd ~/ansible-training/exercise/02_basic
 ```bash
 ansible -m ping -i inventory all
 ```
-
-以下の環境が構築されます。
-
-![](img/arch.drawio.svg)
 
 各ターゲットへSSHで接続する際は、以下のコマンドを実行してください。  
 SSHから抜ける際は`exit`コマンドを実行すると元のコンソールへ戻ることができます。  

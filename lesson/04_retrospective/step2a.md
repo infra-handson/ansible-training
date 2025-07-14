@@ -5,7 +5,7 @@
 target01サーバで接続ユーザ名を確認する。
 
 ```bash
-ansible -m shell -a "whoami" -i inventory target01
+ansible -m ansible.builtin.shell -a "whoami" -i inventory target01
 ```
 
 以下のように出力されるはずです。
@@ -18,7 +18,7 @@ hoge
 すべてのサーバで接続ユーザ名を確認する。
 
 ```bash
-ansible -m shell -a "whoami" -i inventory all
+ansible -m ansible.builtin.shell -a "whoami" -i inventory all
 ```
 
 以下のように出力されるはずです。  
@@ -34,7 +34,7 @@ foo
 ## 課題1-2: IPの確認
 
 ```bash
-ansible -m shell -a "ip a" -i inventory all
+ansible -m ansible.builtin.shell -a "ip a" -i inventory all
 ```
 
 `172.18.0.2`のようなIPアドレスがサーバのIPです。
@@ -45,14 +45,14 @@ ansible -m shell -a "ip a" -i inventory all
 
 ```bash
 # target02のIPアドレスが「172.18.0.2」だった場合
-ansible -m shell -a "ping 172.18.0.2 -c 4" -i inventory target01
+ansible -m ansible.builtin.shell -a "ping 172.18.0.2 -c 4" -i inventory target01
 ```
 
 **target02から**target02に`ping`を実行する。
 
 ```bash
 # target01のIPアドレスが「172.18.0.4」だった場合
-ansible -m shell -a "ping 172.18.0.4 -c 4" -i inventory target02
+ansible -m ansible.builtin.shell -a "ping 172.18.0.4 -c 4" -i inventory target02
 ```
 
 ## 発展課題: `ping`コマンドで`-c`オプションが必要な理由

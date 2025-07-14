@@ -22,7 +22,7 @@ cd ~/ansible-training/exercise/04_retrospective
 3. Ansibleが実行できることを確認します
 
 ```bash
-ansible -m ping -i inventory all
+ansible -m ansible.builtin.ping -i inventory all
 ```
 
 以下の環境が構築されます。
