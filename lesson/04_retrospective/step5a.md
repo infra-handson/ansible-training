@@ -7,7 +7,7 @@ taskの他、`host_vars`ディレクトリの`target01.yaml`と`target02.yaml`�
 ```yaml
 # task
 - name: "ユーザ作成"
-  user:
+  ansible.builtin.user:
     name: "{{ item }}"
   loop: "{{ users }}"
 ```
@@ -29,7 +29,7 @@ users:
 ## 課題4-2: 作成したユーザの確認
 
 ```bash
-ansible -m shell -a "tail -10 /etc/passwd" -i inventory all
+ansible -m ansible.builtin.shell -a "tail -10 /etc/passwd" -i inventory all
 ```
 
 表示する行数は適宜調整してください。`cat`でもよいです。

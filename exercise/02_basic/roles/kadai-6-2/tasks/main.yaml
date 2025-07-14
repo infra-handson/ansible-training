@@ -1,2 +1,3 @@
 - name: シェルコマンドを実行するタスク
-  shell: hostname >> ~/resultfile
+  ansible.builtin.shell:
+    cmd: hostname >> ~/resultfile

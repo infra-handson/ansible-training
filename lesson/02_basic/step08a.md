@@ -4,7 +4,7 @@
 
 ```yaml
 - name: "fetch files"
-  fetch:
+  ansible.builtin.fetch:
     src: "{{ item }}"
     dest: ./kadai-4_fetch_files/
   loop: "{{ fetch_files }}"
@@ -60,20 +60,20 @@ all:
       server_hostname: target-server-01  # 課題3で使用した変数
       fetch_files:
         - path: /etc/passwd
-          dest: /tmp/test4/foo
+          dest: ./kadai-4_fetch_files_exp/foo
         - path: /etc/ssh/sshd_config
-          dest: /tmp/test4/bar
+          dest: ./kadai-4_fetch_files_exp/bar
     target02:
       ansible_port: 2223
       ansible_user: foo
       server_hostname: target-server-02
       fetch_files:
         - path: /etc/group
-          dest: /tmp/test4/foo
+          dest: ./kadai-4_fetch_files_exp/foo
         - path: /etc/profile
-          dest: /tmp/test4/bar
+          dest: ./kadai-4_fetch_files_exp/bar
         - path: /proc/cpuinfo
-          dest: /tmp/test4/hoge
+          dest: ./kadai-4_fetch_files_exp/baz
   vars:
     ansible_ssh_private_key_file: ~/.ssh/ansible_lesson_key
 ```
@@ -86,6 +86,7 @@ all:
     src: "{{ item.path }}"
     dest: "{{ item.dest }}"
   loop: "{{ fetch_files }}"
+
 ```
 
 以下でPlaybookを実行し、指定した通りにファイルを取得できていることを確認してみてください。
@@ -93,8 +94,6 @@ all:
 ```bash
 # Playbook実行
 ansible-playbook -i inventory playbook_kadai-4.yaml
-# 取得確認
-tree /tmp/test4/
 ```
 
 ---

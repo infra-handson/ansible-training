@@ -7,28 +7,34 @@ Start - [1](step01.md) - [**2**](step02.md) - [3](step03.md) - [4](step04.md) - 
 題材として、fetchモジュールを使ってファイル収集するPlaybookを作ります。  
 本課題は最初の課題のため、コピペだけで作れるようにテキストを作成しています。  
 ※ファイル収集のイメージ
-![](img/arch.drawio_correct.svg)
+![](img/arch_correct.drawio.svg)
 
 
 ## 1. Playbookの作成
 
-`playbook_kadai-1.yaml`に以下をコピペします。
+`exercise/02_basic/playbook_kadai-1.yaml`に以下をコピー＆ペーストします。  
+ここでは`kadai-1`ロールを実行するよう定義しています
 
 ```yaml
+---
 - hosts: all
   roles:
     - kadai-1
+
 ```
 
 ## 2. タスクの作成
 
-`roles/kadai-1/tasks/main.yaml`に以下をコピペします。
+`exercise/02_basic/roles/kadai-1/tasks/main.yaml`に以下をコピー＆ペーストします。  
+ここでは`kadai-1`ロールのタスクを定義しています。`fetch`モジュールでターゲットサーバのファイルをローカルに取得します。
 
 ```yaml
+---
 - name: fetch 「/etc/passwd」
-  fetch:
+  ansible.builtin.fetch:
     src: /etc/passwd
     dest: ./kadai-1_fetch_files/
+
 ```
 
 ## 3. Playbookを実行
@@ -39,7 +45,7 @@ ansible-playbook -i inventory playbook_kadai-1.yaml
 
 ## 4. 取得したファイルの確認
 
-Playbookを実行すると、`kadai-1_fetch_files`というディレクトリが表示されます。  
+Playbookを実行すると、`exercise/02_basic/`に`kadai-1_fetch_files`というディレクトリが作成されます。  
 その中に各ターゲットサーバごとの`/etc/passwd`ファイルが取得されているのを確認してください。  
 
 ※ディレクトリが表示されない場合は、エディタ上の以下の位置にある更新ボタンを押してください。

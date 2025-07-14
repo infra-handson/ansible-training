@@ -11,7 +11,7 @@ Start - [1](step1.md) - [2](step2.md) - [3](step3.md) - [4](step4.md) - [5](step
 
 ### 補足1
 
-実行時のみ特定の変数を定義したい場合は以下のように`-e`オプションを使って行えます。  
+実行時に特定の変数を定義したい場合は以下のように`-e`オプションを使って行えます。  
 `-e`は`extra-vars`と呼ばれるオプションで、無計画に使用するとコードでの状態管理が行えなくなるリスクがありますが、今回のような用途として使うと便利に使うことができます。  
 具体的には以下のように実行します。
 
@@ -28,11 +28,11 @@ ansible-playbook -i inventory <Playbookファイル> -e "user_check=True"
 
 ```yaml
 - name: "コマンドの実行"
-  shell: "hostname"
+  ansible.builtin.shell: "hostname"
   register: ret  # これを記載するとモジュールの結果がret変数に格納される
 
 - name: "コマンド実行結果の出力"
-  debug:
+  ansible.builtin.debug:
     msg: "{{ ret.stdout_lines }}"
 ```
 

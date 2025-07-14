@@ -5,7 +5,7 @@
 また、配置場所を変更したい場合もコードを直接書き換える必要があります。  
 このような「書き換える可能性があるパラメータ」に関しては、変数化を行っておくことで汎用性や可読性を高められ、保守管理を行いやすくできます。
 
-![](https://raw.githubusercontent.com/sensq/katacoda-scenarios/main/practice/img/vars.drawio.svg)
+![](img/vars.drawio.svg)
 
 ## 演習2-1：1-1で実装したRoleを変数化する
 
@@ -15,17 +15,19 @@
 １. タスクの変数化
 
 `/tmp`以外にも配置できるように`dest`で指定しているパラメータを変数化します。  
-変数化は適当に決めた変数名を`"{{ }}"`で括るだけでよいです。  
+taskでの変数の展開は変数名を`"{{ }}"`で括るだけでよいです。  
 また、タスク名にも変数は使えるため、上手く使うと可読性が高まります。  
 ※タスク名のように、文字列内に変数を埋め込む場合は全体が`"`（ダブルクォーテーション）で括られていればよいです。
 
-`roles/simple_role/tasks/main.yaml`に以下をコピペしてください。
+`exercise/03_practice/roles/simple_role/tasks/main.yaml`に以下をコピー＆ペーストしてください。
 
 ```yaml
+---
 - name: "put template_file to {{ dest_dir }}"
-  template:
+  ansible.builtin.template:
     src: ./templates/testfile.j2
     dest: "{{ dest_dir }}/testfile"
+
 ```
 
 ２. Templateファイルの変数化
@@ -33,7 +35,7 @@
 `Taro`さん以外の名前にも変更できるように`Taro`と記述していた部分を変数化します。  
 ※理由は省略しますが、Template内では`"`で括る必要ありません。
 
-`roles/simple_role/templates/testfile.j2`に以下をコピペしてください。
+`exercise/03_practice/roles/simple_role/templates/testfile.j2`に以下をコピペしてください。
 
 ```text
 My name is {{ user_name }}.
@@ -45,20 +47,24 @@ My name is {{ user_name }}.
 ここで定義した値が実行時に同名の変数が記述されている部分へ展開されて実行されます。  
 このRoleでは配置するディレクトリは基本的に固定であるものと想定し、`dest`で指定するディレクトリパス`dest_dir`変数は`vars`に定義することにします。
 
-`roles/simple_role/vars/main.yaml`に以下をコピペしてください。
+`exercise/03_practice/roles/simple_role/vars/main.yaml`に以下をコピペしてください。
 
 ```yaml
+---
 dest_dir: "/tmp"
+
 ```
 
 ４. defaultsに変数を定義
 
-名前は基本的に変更して実行するものであると想定し、Templateファイルで参照している`user_name`変数は`defaults`に定義することにします。
+名前は必要に応じて変更するもので、特に指定しない場合は`Taro`とすることを想定し、Templateファイルで参照している`user_name`変数は`defaults`に定義することにします。
 
-`roles/simple_role/defaults/main.yaml`に以下をコピペしてください。
+`exercise/03_practice/roles/simple_role/defaults/main.yaml`に以下をコピペしてください。
 
 ```yaml
+---
 user_name: "Taro"
+
 ```
 
 最終的に以下の構成になります。
@@ -86,7 +92,7 @@ ansible-playbook -i inventory playbook_simple_role.yaml
 実行結果の確認は以下のコマンドで行なえます。
 
 ```bash
-ansible -m shell -a "cat /tmp/testfile" -i inventory all
+ansible -m ansible.builtin.shell -a "cat /tmp/testfile" -i inventory all
 ```
 
 以下のように出力されるはずです。
@@ -102,18 +108,22 @@ My name is Taro.
 
 １. varsで定義した値を変更
 
-`roles/simple_role/vars/main.yaml`に以下をコピペしてください。
+`exercise/03_practice/roles/simple_role/vars/main.yaml`に以下をペーストして書き換えてください。
 
 ```yaml
+---
 dest_dir: "/root"
+
 ```
 
 ２. defaultsで定義した値を変更
 
-`roles/simple_role/defaults/main.yaml`に以下をコピペしてください。
+`exercise/03_practice/roles/simple_role/defaults/main.yaml`に以下をペーストして書き換えてください。
 
 ```yaml
+---
 user_name: "Jiro"
+
 ```
 
 ３. Playbookの再実行
@@ -131,7 +141,7 @@ ansible-playbook -i inventory playbook_simple_role.yaml
 以下のコマンドで実行対象に配置されたファイルの内容を確認します。
 
 ```bash
-ansible -m shell -a "sudo cat /root/testfile" -i inventory all
+ansible -m ansible.builtin.shell -a "sudo cat /root/testfile" -i inventory all
 ```
 
 以下のように出力されるはずです。  

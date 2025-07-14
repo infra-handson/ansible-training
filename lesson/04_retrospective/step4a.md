@@ -5,8 +5,9 @@
 taskのみ記載します。
 
 ```yaml
+---
 - name: "ユーザ作成"
-  user:
+  ansible.builtin.user:
     name: "{{ item }}"
   loop:
     - nginx
@@ -20,7 +21,7 @@ taskのみ記載します。
 1ユーザずつ確認してもよいですが、今回は目視でまとめて確認したいので`/etc/passwd`の中身を見るのが手っ取り早いです。
 
 ```bash
-ansible -m shell -a "tail /etc/passwd" -i inventory all
+ansible -m ansible.builtin.shell -a "tail /etc/passwd" -i inventory all
 ```
 
 ---

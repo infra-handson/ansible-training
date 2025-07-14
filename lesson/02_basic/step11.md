@@ -10,17 +10,19 @@ Start - [1](step01.md) - [2](step02.md) - [3](step03.md) - [4](step04.md) - [5](
 `playbook_kadai-6-1.yaml`に以下をコピペします。
 
 ```yaml
+---
 - hosts: all
   roles:
     - kadai-6-1
+
 ```
 
 ## 2. タスクの作成
 
-[shellモジュールのドキュメント](https://docs.ansible.com/ansible/2.9_ja/modules/shell_module.html)を参考に、`roles/kadai-6-1/tasks/main.yaml`へタスクを作成します。  
+[shellモジュールのドキュメント](https://docs.ansible.com/ansible-core/2.15_ja/collections/ansible/builtin/shell_module.html)を参考に、`exercise/02_basic/roles/kadai-6-1/tasks/main.yaml`へタスクを作成します。  
 実装の要件は以下の通りです。
 
-* `shell`モジュールで`hostname >> ~/resultfile`を実行するタスクを作成すること
+* `shell`モジュールでコマンド `hostname >> ~/resultfile` を実行するタスクを作成すること
 * 冪等性は考慮しなくてよい
 
 回答例は次のページに記載していますが、どうしても上手くいかない場合にだけ参考にしてください。

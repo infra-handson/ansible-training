@@ -8,9 +8,10 @@ Start - [1](step01.md) - [2](step02.md) - [3](step03.md) - [4](step04.md) - [5](
 
 ## 1. Playbookの作成
 
-`playbook_kadai-3.yaml`に以下をコピペします。
+`playbook_kadai-3.yaml`に以下をコピー＆ペーストします。
 
 ```yaml
+---
 - hosts: all
   roles:
     - kadai-3
@@ -25,7 +26,7 @@ Ansibleでの変数定義の方法はいくつかあり、一般的にはhost_va
 この方法はシンプルではありますが、ターゲットサーバや変数が多くなるとインベントリファイルが肥大化して見通しが悪くなるデメリットがあります。  
 実際にAnsibleを使う際はどのように変数定義を行って管理していくかなどのルールも決めておく必要があることを認識しておくとよいです。
 
-カレントディレクトリ直下の`inventory`ファイルに以下をコピーして上書きします。
+カレントディレクトリ直下の`inventory`ファイルに以下をコピーして上書きします。（各ホストにserver_hostnameを追加しています）
 
 ```yaml
 all:
@@ -45,7 +46,7 @@ all:
 
 ## 3. テンプレートファイルの作成
 
-`roles/kadai-3/templates/template_file.j2`に以下をコピペします。
+`02_basic/exercise/roles/kadai-3/templates/template_file.j2`に以下をコピペします。
 
 ```text
 ターゲットサーバに配置されるファイルです。
@@ -56,11 +57,11 @@ Ansible実行後にターゲットサーバに配置されていることを確�
 
 ## 4. タスクの作成
 
-[templateモジュールのドキュメント](https://docs.ansible.com/ansible/2.9_ja/modules/template_module.html)を参考に、`roles/kadai-3/tasks/main.yaml`へタスクを作成します。  
+[templateモジュールのドキュメント](https://docs.ansible.com/ansible-core/2.15_ja/collections/ansible/builtin/template_module.html#ansible-collections-ansible-builtin-template-module)を参考に、`02_basic/exercise/roles/kadai-3/tasks/main.yaml`へタスクを作成します。  
 実装の要件は以下の通りです。
 
 * `template`モジュールを使うこと
-* 2で作成した`roles/kadai-3/templates/template_file.j2`をターゲットサーバの`/tmp/template_file`へ配置すること
+* 2で作成した`template_file.j2`をターゲットサーバの`/tmp/template_file`へ配置すること
 
 回答例は次のページに記載していますが、どうしても上手くいかない場合にだけ参考にしてください。
 

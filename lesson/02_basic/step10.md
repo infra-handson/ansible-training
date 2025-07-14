@@ -11,9 +11,11 @@ Start - [1](step01.md) - [2](step02.md) - [3](step03.md) - [4](step04.md) - [5](
 `playbook_kadai-5.yaml`に以下をコピペします。
 
 ```yaml
+---
 - hosts: all
   roles:
     - kadai-5
+
 ```
 
 ## 2. インベントリファイルに変数を定義
@@ -23,34 +25,41 @@ Step8で作成したインベントリファイルと同様の状態にしてお
 ```yaml
 all:
   hosts:
-    target01:  # hostごとの変数
+    target01:
       ansible_port: 2222
       ansible_user: hoge
-      server_hostname: target-server-01
+      server_hostname: target-server-01  # 課題3で使用した変数
       fetch_files:
-        - /etc/passwd
-        - /etc/ssh/sshd_config
-    target02:  # hostごとの変数
+        - path: /etc/passwd
+          dest: ./kadai-4_fetch_files_exp/foo
+        - path: /etc/ssh/sshd_config
+          dest: ./kadai-4_fetch_files_exp/bar
+    target02:
       ansible_port: 2223
       ansible_user: foo
       server_hostname: target-server-02
       fetch_files:
-        - /etc/group
-        - /etc/profile
-        - /proc/cpuinfo
-  vars:  # 共通の変数
+        - path: /etc/group
+          dest: ./kadai-4_fetch_files_exp/foo
+        - path: /etc/profile
+          dest: ./kadai-4_fetch_files_exp/bar
+        - path: /proc/cpuinfo
+          dest: ./kadai-4_fetch_files_exp/baz
+  vars:
     ansible_ssh_private_key_file: ~/.ssh/ansible_lesson_key
+
 ```
 
 ## 3. タスクの作成
 
-「[fetchモジュールのドキュメント](https://docs.ansible.com/ansible/2.9_ja/modules/fetch_module.html)」と「[条件のドキュメント](https://docs.ansible.com/ansible/2.9_ja/user_guide/playbooks_conditionals.html)」を参考に、`roles/kadai-5/tasks/main.yaml`へタスクを作成します。  
+「[fetchモジュールのドキュメント](https://docs.ansible.com/ansible-core/2.15_ja/collections/ansible/builtin/fetch_module.html#ansible-collections-ansible-builtin-fetch-module)」と「[条件のドキュメント](https://docs.ansible.com/ansible-core/2.15_ja/playbook_guide/playbooks_conditionals.html#playbooks-conditionals)」を参考に、`exercise/02_basic/roles/kadai-5/tasks/main.yaml`へタスクを作成します。  
 実装の要件は以下の通りです。
 
 * `fetch`モジュールを使うこと
-* `when`を使って、target01のサーバからのみ、`/etc/passwd`ファイルを取得すること
+* `when`を使って、target01のサーバの`/etc/passwd`ファイルをだけを取得すること
+  * target02からは取得しないこと。
+  * インベントリを編集しないこと。
   * 何を条件にするかはお任せします。
-  * インベントリからtarget02を消すなど、そもそもtarget02への実行を行わなくさせるのは禁止です
 * 取得したファイルはカレントディレクトリ直下の`kadai-5_fetch_files`というディレクトリに配置すること
 
 回答例は次のページに記載していますが、どうしても上手くいかない場合にだけ参考にしてください。

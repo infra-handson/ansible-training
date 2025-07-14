@@ -1,42 +1,42 @@
 ---
 - name: Nginxをインストール
-  apk:
+  community.general.apk:
     name: nginx
 
 - name: /run/nginxディレクトリを作成
-  file:
+  ansible.builtin.file:
     path: /run/nginx
     state: directory
 
 - name: /appディレクトリを作成
-  file:
+  ansible.builtin.file:
     path: /app
     state: directory
 
 - name: index.htmlを配置
-  template:
+  ansible.builtin.template:
     src: ./templates/index.html.j2
     dest: /app/index.html
 
 - name: Nginxのコンフィグファイルを配置
-  copy:
+  ansible.builtin.copy:
     src: ./files/nginx.conf
     dest: /etc/nginx/conf.d/default.conf
   register: conf_copy
 
 - name: デバッグ情報の表示
-  debug:
+  ansible.builtin.debug:
     msg: "{{ conf_copy }}"
 
 - name: Nginxの稼働状態を確認
-  shell: ps aux | grep nginx | grep -v grep | cat
+  ansible.builtin.shell: ps aux | grep nginx | grep -v grep | cat
   register: nginx_process
   changed_when: False
 
 - name: Nginxを起動
-  shell: nginx
+  ansible.builtin.shell: nginx
   when: nginx_process.stdout == ""
 
 - name: Nginxのコンフィグファイルを読み込む
-  shell: nginx -s reload
+  ansible.builtin.shell: nginx -s reload
   when: conf_copy.changed

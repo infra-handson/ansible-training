@@ -7,8 +7,8 @@ Start - [1](step1.md) - [2](step2.md) - [3](step3.md) - [**4**](step4.md) - [5](
 インベントリファイルの確認方法を学びます。  
 現時点では、中身の内容を詳しく理解しなくても問題ありません。
 
-1. エディタ上の`inventory`ファイルをクリックし、ファイルの中身を確認します
-2. `ansible-inventory`コマンドでもインベントリを確認できることを確認します  
+1. エディタで`01_introduction`内の`inventory`をクリックして開き、ファイルの中身を確認します
+2. ターミナルで`ansible-inventory`コマンドを実行することでもインベントリを確認できることを確認します  
 
 ```bash
 ansible-inventory -i inventory --list -y
@@ -19,7 +19,7 @@ ansible-inventory -i inventory --list -y
 Ansibleの設定ファイルの確認方法を学びます。  
 現時点では、中身の内容を詳しく理解しなくても問題ありません。
 
-1. エディタ上の`ansible.cfg`ファイルをクリックし、ファイルの中身を確認します
+1. エディタで`01_introduction`内の`ansible.cfg`ファイルをクリックし、ファイルの中身を確認します
 2. `ansible-config view`コマンドで設定を確認できることを確認します  
 
 ```bash

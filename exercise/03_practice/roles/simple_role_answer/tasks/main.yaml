@@ -1,5 +1,5 @@
 ---
 - name: "put template_file to {{ dest_dir }}"
-  template:
+  ansible.builtin.template:
     src: ./templates/testfile.j2
     dest: "{{ dest_dir }}/testfile"

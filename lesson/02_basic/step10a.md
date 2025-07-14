@@ -3,8 +3,9 @@
 `roles/kadai-5/tasks/main.yaml`
 
 ```yaml
+---
 - name: fetch 「/etc/passwd」
-  fetch:
+  ansible.builtin.fetch:
     src: /etc/passwd
     dest: ./kadai-5_fetch_files/
   when: server_hostname == "target-server-01"
@@ -18,8 +19,9 @@ target02への実行がskipになっていてtarget01からのみファイルを
 以下のように配列形式でwhenに複数の条件を指定するとAND条件になり、すべての条件が真（True）の場合にのみタスクが実行されます。  
 
 ```yaml
+---
 - name: fetch 「/etc/passwd」
-  fetch:
+  ansible.builtin.fetch:
     src: /etc/passwd
     dest: ./kadai-5_fetch_files/
   when:  # 以下の3つが全部Trueだとタスクが実行される
@@ -31,8 +33,9 @@ target02への実行がskipになっていてtarget01からのみファイルを
 OR条件で条件を指定したい場合は以下のように指定します。
 
 ```yaml
+---
 - name: fetch 「/etc/passwd」
-  fetch:
+  ansible.builtin.fetch:
     src: /etc/passwd
     dest: ./kadai-5_fetch_files/
   when: foo_var == 1 or bar_var is undefined  # 「foo_varが1」または「bar_var変数が未定義」だとTrue
@@ -42,8 +45,9 @@ OR条件で条件を指定したい場合は以下のように指定します。
 ただし、複雑すぎる条件は可読性を低下させたりバグの原因になったりするため、使用する際はより良い方法がないかなど検討するとよいです。
 
 ```yaml
+---
 - name: fetch 「/etc/passwd」
-  fetch:
+  ansible.builtin.fetch:
     src: /etc/passwd
     dest: ./kadai-5_fetch_files/
   when:  # 以下の2つが両方Trueだとタスクが実行される

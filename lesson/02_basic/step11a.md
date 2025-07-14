@@ -3,8 +3,11 @@
 `roles/kadai-6-1/tasks/main.yaml`
 
 ```yaml
+---
 - name: シェルコマンドを実行するタスク
-  shell: hostname >> ~/resultfile
+  ansible.builtin.shell: 
+    cmd: hostname >> ~/resultfile
+
 ```
 
 ---

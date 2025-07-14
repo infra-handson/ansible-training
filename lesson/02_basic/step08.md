@@ -11,6 +11,7 @@ Start - [1](step01.md) - [2](step02.md) - [3](step03.md) - [4](step04.md) - [5](
 `playbook_kadai-4.yaml`に以下をコピペします。
 
 ```yaml
+---
 - hosts: all
   roles:
     - kadai-4
@@ -18,7 +19,7 @@ Start - [1](step01.md) - [2](step02.md) - [3](step03.md) - [4](step04.md) - [5](
 
 ## 2. インベントリファイルに変数を定義
 
-カレントディレクトリ直下の`inventory`ファイルに以下をコピペします。  
+カレントディレクトリ直下の`inventory`ファイルに以下をコピー＆ペーストします。  
 `fetch_files`に定義したリストをループに使います。  
 
 ```yaml
@@ -45,7 +46,7 @@ all:
 
 ## 3. タスクの作成
 
-「[fetchモジュールのドキュメント](https://docs.ansible.com/ansible/2.9_ja/modules/fetch_module.html)」と「[ループのドキュメント](https://docs.ansible.com/ansible/2.9_ja/user_guide/playbooks_loops.html)」を参考に、`roles/kadai-4/tasks/main.yaml`へタスクを作成します。  
+「[fetchモジュールのドキュメント](https://docs.ansible.com/ansible-core/2.15_ja/collections/ansible/builtin/fetch_module.html#ansible-collections-ansible-builtin-fetch-module)」と「[ループのドキュメント](https://docs.ansible.com/ansible-core/2.15_ja/playbook_guide/playbooks_loops.html)」を参考に、`exercise/02_basic/roles/kadai-4/tasks/main.yaml`へタスクを作成します。  
 実装の要件は以下の通りです。
 
 * `fetch`モジュールを使うこと
